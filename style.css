@@ -35,7 +35,7 @@ img {
 
 	/* fonts */
 	--title-font-size: 1.875rem;
-	--subtitle-font-size: 1rem;
+	--subtitle-font-size: 1.25rem;
 
 	--title-font: 'Poppins', sans-serif;
 	--body-font: 'DM Sans', sans-serif;
@@ -114,6 +114,20 @@ body {
 
 .section .subtitle {
 	font-size: var(--subtitle-font-size);
+	position: relative;
+	text-indent: 1.875rem;
+}
+
+.section .subtitle div{
+	display: inline;
+}
+
+.section .subtitle div span {
+	font: 700 2.375rem serif;
+	position: absolute;
+	top: -0.375rem;
+	left: -1.875rem;
+	color: var(--base-color);
 }
 
 .section header {
@@ -343,9 +357,41 @@ nav.show div.icon-close {
 	margin-left: 1.5rem;
 }
 
-/*====  SERVICES ============================ */
+/*====  COURSE ============================ */
+
+#course a {
+	font: 400 1rem var(--body-font);
+	color: var(--title-color);
+	font-weight: bold;
+
+	transition: color 0.2s;
+	position: relative;
+}
+
+#course a:hover {
+	color: var(--base-color);
+}
+
+#course a::after {
+	content: '';
+	width: 0%;
+	height: 2px;
+	background: var(--base-color);
+
+	position: absolute;
+	left: 0;
+	bottom: -0.1rem;
+
+	transition: width 0.2s;
+}
+
+#course a:hover::after {
+	width: 100%;
+}
+
 .cards.grid {
-	gap: 1.5rem;
+	justify-content: center;
+	max-width: 30rem;
 }
 
 .card {
@@ -540,16 +586,30 @@ footer .social a:hover {
 @media (min-width: 992px) {
 	:root {
 		--title-font-size: 2.25rem;
-		--subtitle-font-size: 1.125rem;
+		--subtitle-font-size: 1.5rem;
 	}
 
 	.section {
 		padding: 10rem 0;
 	}
 
+	.section .subtitle {
+		text-indent: 0rem;
+		position: unset;
+		text-align: center;
+	}
+
+	.section .subtitle div{
+		position: relative;
+		display: revert;
+	}
+	
+	.section .subtitle div span {
+		left: 6.5rem;
+	}
+
 	.section header,
 	#testimonials header {
-		max-width: 32rem;
 		text-align: center;
 		margin-right: auto;
 		margin-left: auto;
@@ -617,9 +677,23 @@ footer .social a:hover {
 		align-items: center;
 	}
 
-	/*==== SERVICES ============================ */
+	/*==== COURSES ============================ */
+
+	#course header p {
+    text-align: justify;
+	}
+
+	#course .subtitle div span {
+		left: 23.8rem;
+	}
+
 	.cards {
-		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-columns: 1fr 1fr;
+	}
+	
+	.cards.grid {
+		justify-content: unset;
+		max-width: none;
 	}
 
 	.card {
